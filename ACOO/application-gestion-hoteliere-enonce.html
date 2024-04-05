@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.552">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>application-gestion-hoteliere-enonce</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="application-gestion-hoteliere-enonce_files/libs/clipboard/clipboard.min.js"></script>
+<script src="application-gestion-hoteliere-enonce_files/libs/quarto-html/quarto.js"></script>
+<script src="application-gestion-hoteliere-enonce_files/libs/quarto-html/popper.min.js"></script>
+<script src="application-gestion-hoteliere-enonce_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="application-gestion-hoteliere-enonce_files/libs/quarto-html/anchor.min.js"></script>
+<link href="application-gestion-hoteliere-enonce_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="application-gestion-hoteliere-enonce_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="application-gestion-hoteliere-enonce_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="application-gestion-hoteliere-enonce_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="application-gestion-hoteliere-enonce_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="application-de-gestion-hotelière" class="level1">
+<h1>Application de gestion hotelière</h1>
+<p>Le propriétaire d’un petit hôtel désire se doter d’une application pour gérer les réservations et les séjours de ses clients. Il ne veut pas que l’application s’occupe de la facturation. La figure 1 illustre les tâches accomplies par un commis à la réception. Vous devez analyser et concevoir une application permettant de noter les réservations, démarrer les séjours et transférer les séjours de chambre. # Diagramme de cas d’utilisation</p>
+<p><img src="https://www.plantuml.com/plantuml/svg/TL0x3i8m3DrpYYSMfafyTWGgCmlb024rRI1jAZjXGTm7pj6BaLP2AWERt_FxMDvAq1nYux3FJyhH9I1uiAtgWD8ocM1zgpfjRheYp7PTvwpH0ucIK96CO-q3ETk_c6PuA4GXeoN9yzDYcHtIaX5R0fCGtrFVQ9yFb51q15FhvZoOjU3mwr_zzHCw5yLIP87qxwkFF0OSVmFMMS6wbKl_vZ7cgnq2fhs5Wdggt3UD5MJP9Xqo0SSfADIMsZ8zxGC0.png" title="DCU" class="img-fluid" alt="DCU"> # CU01-Cas d’utilisation «Noter une réservation» <strong>Pré(s) condition(s) :</strong> • Le commis est authentifié. <strong>Post condition(s) :</strong> • Une réservation est inscrite dans le système. <strong>Acteur principal:</strong> • Le commis à la réception (commis).</p>
+<p><strong>Scénario principal</strong> 1. Un client appelle à l’hôtel pour placer une réservation. 2. Le commis démarre une nouvelle réservation. 3. Le commis entre: i. La date d’arrivée; ii. La date de départ; iii. Le nom de la catégorie de chambre; iv. La quantité de chambres. 6. Le système affiche toutes les informations entrées. 7. Le commis valide les informations auprès du client et confirme la réservation à l’aide du nom et du numéro de téléphone du client. 8. Le système enregistre la réservation et affiche le numéro de confirmation. 9. Le commis communique le numéro de confirmation au client.</p>
+<p><strong>Scénarios alternatifs</strong> *. En tout temps, le commis annule la réservation. 1. Le système supprime la réservation. 2. Fin du cas d’utilisation.</p>
+<p>3a. Il n’y a pas assez de chambres de la catégorie choisie pour la période entrée. 1. Le système affiche un message d’avertissement. 2. Le système affiche les disponibilités de toutes les catégories pour la période entrée. 3. Le commis communique les disponibilités au client. 4. Retour à 3.</p>
+<section id="cu01-réservation-simple" class="level4">
+<h4 class="anchored" data-anchor-id="cu01-réservation-simple">CU01-Réservation simple</h4>
+<p>Jean Hernandez appelle à l’hôtel pour réserver une chambre. Le commis entrera: Le 2011-06-01 comme date d’arrivée Le 2011-06-02 comme date de départ “Luxe” comme catégorie de chambre 1 pour la quantité Le commis terminera ensuite la réservation en entrant le nom du client et communiquera le numéro de confirmation à monsieur Hernandez.</p>
+</section>
+<section id="interfaces-usagé" class="level2">
+<h2 class="anchored" data-anchor-id="interfaces-usagé">Interfaces usagé</h2>
+</section>
+<section id="cu01-modèle-du-domaine" class="level2">
+<h2 class="anchored" data-anchor-id="cu01-modèle-du-domaine">CU01-Modèle du domaine</h2>
+</section>
+<section id="diagramme-de-séquence-système" class="level2">
+<h2 class="anchored" data-anchor-id="diagramme-de-séquence-système">Diagramme de séquence système</h2>
+</section>
+<section id="contrats" class="level2">
+<h2 class="anchored" data-anchor-id="contrats">Contrats</h2>
+</section>
+<section id="rdcus" class="level2">
+<h2 class="anchored" data-anchor-id="rdcus">RDCU’s</h2>
+</section>
+<section id="diagramme-de-classe" class="level2">
+<h2 class="anchored" data-anchor-id="diagramme-de-classe">Diagramme de classe</h2>
+</section>
+</section>
+<section id="cu02---noter-une-réservation-avec-plusieurs-chambres" class="level1">
+<h1>CU02 - Noter une réservation avec plusieurs chambres</h1>
+<p><strong>Pré(s) condition(s) :</strong> - Le commis est authentifié.</p>
+<p><strong>Post condition(s) :</strong> - Une réservation est inscrite</p>
+<p><strong>Acteur principal:</strong> - Le commis à la réception (commis).</p>
+<p><strong>Scénario principal</strong> 1. Un client appelle à l’hôtel pour placer une réservation. 1. Le commis démarre une nouvelle réservation. 1. Le commis entre: 1. La date d’arrivée; 2. La date de départ; 3. Le nom de la catégorie de chambre; 4. La quantité de chambres. 1. Le système inscrit les informations à la réservation.</p>
+<p>Les étapes 3 et 4 sont répétées tant que le client n’indique pas qu’il a terminé.</p>
+<ol start="5" type="1">
+<li>Le commis termine la réservation.</li>
+<li>Le système affiche toutes les informations entrées.</li>
+<li>Le commis valide les informations auprès du client et confirme la réservation à l’aide du nom et du numéro de téléphone du client.</li>
+<li>Le système enregistre la réservation et affiche le numéro de confirmation.</li>
+<li>Le commis communique le numéro de confirmation au client.</li>
+</ol>
+<p><strong>Scénarios alternatifs</strong> *. En tout temps, le commis annule la réservation. 1. Le système supprime la réservation. 2. Fin du cas d’utilisation.</p>
+<p>3a. Il n’y a pas assez de chambres de la catégorie choisie pour la période entrée. 1. Le système affiche un message d’avertissement. 1. Le système affiche les disponibilités de toutes les catégories pour la période entrée. 1. Le commis communique les disponibilités au client. 1. Retour à 3.</p>
+<section id="cu02-réservation-daffaires" class="level4">
+<h4 class="anchored" data-anchor-id="cu02-réservation-daffaires">CU02-Réservation d’affaires</h4>
+<p>Jean Hernandez appelle à l’hôtel pour réserver deux chambres identiques, mais pour des périodes légèrement différentes. Son collègue, Patrice Retardataire, arrivera une journée après Jean. Le commis entrera d’abord: 2011-08-02 comme date d’arrivée 2011-08-07 comme date de départ “Standard” comme catégorie de chambre 1 pour la quantité Puis, il entrera: 2011-08-03 comme date d’arrivée 2011-08-07 comme date de départ “Standard” comme catégorie de chambre 1 pour la quantité Le commis terminera ensuite la réservation et communiquera le numéro de confirmation à monsieur Hernandez.</p>
+</section>
+<section id="cu03-réservation-budgétaire" class="level4">
+<h4 class="anchored" data-anchor-id="cu03-réservation-budgétaire">CU03-Réservation budgétaire</h4>
+<p>Jean Hernandez planifie des vacances avec son fils. Il appelle à l’hôtel pour réserver deux chambres de catégorie différente pour la même période. Le commis entrera d’abord: 2011-07-10 comme date d’arrivée 2011-07-18 comme date de départ “Luxe” comme catégorie de chambre 1 pour la quantité Puis, il entrera: 2011-07-10 comme date d’arrivée 2011-07-18 comme date de départ “Standard” comme catégorie de cham¬ Le commis terminera ensuite la réservation et communiquera le numéro de confirmation à monsieur Hernandez.</p>
+</section>
+<section id="interfaces-usagé-1" class="level2">
+<h2 class="anchored" data-anchor-id="interfaces-usagé-1">Interfaces usagé</h2>
+</section>
+<section id="évolution-du-modèle-du-domaine" class="level2">
+<h2 class="anchored" data-anchor-id="évolution-du-modèle-du-domaine">Évolution du Modèle du domaine</h2>
+<p>Cette version sous entends que les Catégories sont les même pour tous les Hotels. Si ce n’étais pas le cas, on associe Hotel à Catégorie et on enlève l’association entre Hotel et Chambre.</p>
+<p>Catégorie peut être traité comme une classe de description ou un catalogue selon le sens par lequel nous utilisons les classes.<br>
+Plusieurs chambres sont décrite par une catégorie (Classe de description) Une Catégorie (Catalogue) contient plusieurs Chambre.</p>
+</section>
+<section id="diagramme-de-séquence-système-1" class="level2">
+<h2 class="anchored" data-anchor-id="diagramme-de-séquence-système-1">Diagramme de séquence système</h2>
+</section>
+<section id="contrats-1" class="level2">
+<h2 class="anchored" data-anchor-id="contrats-1">Contrats</h2>
+</section>
+<section id="rdcus-1" class="level2">
+<h2 class="anchored" data-anchor-id="rdcus-1">RDCU’s</h2>
+</section>
+<section id="diagramme-de-classe-1" class="level2">
+<h2 class="anchored" data-anchor-id="diagramme-de-classe-1">Diagramme de classe</h2>
+</section>
+</section>
+<section id="cu03-transférer-un-séjour-de-chambre" class="level1">
+<h1>CU03-Transférer un séjour de chambre</h1>
+<p><strong>Précondition(s) :</strong> - Le commis est authentifié.</p>
+<p><strong>Postcondition(s) :</strong> - Le séjour se poursuit dans une autre chambre.</p>
+<p><strong>Acteur principal :</strong> Le commis à la réception</p>
+<p><strong>Scénario principal</strong> 1. Un client désire occuper une chambre différente pour le reste de son séjour. 1. Le commis entre le numéro de chambre dans laquelle le client séjourne. 1. Le système affiche le séjour ainsi que toutes les chambres disponibles de la même catégorie. 1. Le commis informe le client des chambres disponibles puis sélectionne celle que le client préfère. 1. Le système modifie la ligne courante du séjour et inscrit une nouvelle ligne au séjour pour la nouvelle chambre. 1. Le commis remet la clé de la chambre au client et lui indique l’emplacement de la chambre dans l’hôtel.</p>
+<p><strong>Scénarios alternatifs</strong> 3a. Il ne reste plus de chambres disponibles dans la catégorie réservée. Le système affiche les chambres disponibles pour toutes les catégories. Retour à 4</p>
+<section id="évolution-du-mdd" class="level2">
+<h2 class="anchored" data-anchor-id="évolution-du-mdd">Évolution du MDD</h2>
+</section>
+<section id="dss" class="level2">
+<h2 class="anchored" data-anchor-id="dss">DSS</h2>
+</section>
+<section id="contrats-2" class="level2">
+<h2 class="anchored" data-anchor-id="contrats-2">Contrat’s</h2>
+</section>
+<section id="rdcus-2" class="level2">
+<h2 class="anchored" data-anchor-id="rdcus-2">RDCU’s</h2>
+</section>
+<section id="dcu" class="level2">
+<h2 class="anchored" data-anchor-id="dcu">DCU</h2>
+</section>
+</section>
+<section id="autre-exercoces" class="level1">
+<h1>Autre exercoces</h1>
+<section id="cu01-exercices-notez-une-réservation" class="level3">
+<h3 class="anchored" data-anchor-id="cu01-exercices-notez-une-réservation">CU01-Exercices-Notez une réservation</h3>
+<ol type="1">
+<li>Représentez le fait qu’un Client est responsable d’une Réservation.</li>
+<li>Représentez le fait qu’une Réservation peut avoir plusieurs Ligne de Réservation.</li>
+<li>Représentez le fait qu’une Catégorie de chambre regroupe plusieurs Chambres.</li>
+<li>Est-il nécessaire d’associer un Client à une Chambre? Justifiez la réponse.</li>
+<li>Représentez le fait qu’un Client désire occuper une Chambre d’une catégorie précise 1. durant la première fin de semaine de mois de juillet. Justifiez les associations à 1. l’aide d’un verbe exprimant la raison d’être de l’association. Indiquez les 1. attributs des classes conceptuelles.</li>
+<li>Représentez le fait qu’un Commis a confirmé la Réservation à l’aide des 1. informations personnelles (nom et numéro de téléphone) du Client. Justifiez les 1. associations à l’aide d’un verbe d’action. Indiquez les attributs nécessaires.</li>
+<li>Bâtissez le modèle du domaine partiel du système de l’hôtel. Justifiez les 1. associations à l’aide d’un verbe. Indiquez tous les attributs pertinents</li>
+</ol>
+</section>
+<section id="cu01-cu02-exercices-rdcu" class="level3">
+<h3 class="anchored" data-anchor-id="cu01-cu02-exercices-rdcu">CU01-CU02-Exercices-RDCU</h3>
+<ol type="1">
+<li><p>Proposez une solution logicielle, sous forme de diagramme dynamique, permettant d’instancier une réservation. Annotez votre solution des principes GRASP.</p></li>
+<li><p>Proposez une solution logicielle, sous forme de diagramme dynamique, permettant d’instancier une ligne de réservation. Annotez votre solution des principes GRASP.</p></li>
+<li><p>Proposez une solution logicielle, sous forme de diagramme dynamique, permettant d’associer une ligne de réservation à une catégorie de chambre. Annotez votre solution des principes GRASP.</p></li>
+<li><p>Proposez une solution logicielle, sous forme de diagramme dynamique, permettant de stocker une réservation. Annotez votre solution des principes GRASP.</p></li>
+<li><p>Proposez une solution logicielle, sous forme de diagramme dynamique, permettant de repérer une réservation à partir de son numéro de confirmation. Annotez votre solution des principes GRASP.</p></li>
+<li><pre><code>Proposez une solution logicielle, sous forme de diagramme dynamique, permettant de créer un client tout en l’associant à une nouvelle réservation. Annotez votre solution des principes GRASP.</code></pre></li>
+<li><p>Proposez une solution logicielle, sous forme de diagramme dynamique, permettant de détruire une réservation appartenant à un client. Annotez votre solution des principes GRASP.</p></li>
+<li><p>Proposez une solution logicielle, sous forme de diagramme dynamique, permettant d’imprimer une facture incluant l’information sur une réservation, ses lignes de réservation et les catégories de chambres associées. Annotez votre solution des principes GRASP.</p></li>
+</ol>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

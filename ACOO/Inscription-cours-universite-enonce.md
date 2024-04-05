@@ -5,13 +5,16 @@ Une université désire un système permettant aux étudiants de gérer leurs in
 ![cu](Inscription-cours-universite/cas%20utilisation.svg)
 
 
-##CU01- S'inscrire au prochain trimestre
+## CU01- S'inscrire au prochain trimestre
+
 **Acteur principal :** l’Étudiant
+
 ****Préconditions :****
 - La période d'inscription est en vigueur. 
 - L'étudiant est authentifié à partir d’un poste internet (avec une adresse IP).
 
-**Garanties en cas de succès (postconditions) :**
+**Postconditions (Garanties en cas de succès) :**
+
 Une inscription est enregistrée. La comptabilité et les places disponibles dans les groupes-cours sont mises à jour.  
 
 **Scénario principal (succès) :**
@@ -35,9 +38,10 @@ Les étapes 4 à 8 sont répétées tant que l'étudiant ne confirme pas son ins
 12. Le système enregistre l'inscription.
 
 **Scénarios alternatifs**
+
 8a. L'étudiant a atteint la limite du nombre de cours auxquels il peut s'inscrire dans un trimestre.
   1. Le système affiche un message avertissant l'étudiant qu'il a atteint la limite de cours.
-    1. Retour à 3.
+  2. Retour à l'étape 3.
 
 11a. L’étudiant saisit une mauvaise clé d’authentification.
   1. Le système affiche un message que l’inscription n’a pas fonctionnée
