@@ -6,7 +6,9 @@ Une université désire un système permettant aux étudiants de gérer leurs in
 
 
 ##CU01- S'inscrire au prochain trimestre
+
 **Acteur principal :** l’Étudiant
+
 ****Préconditions :****
 - La période d'inscription est en vigueur. 
 - L'étudiant est authentifié à partir d’un poste internet (avec une adresse IP).
